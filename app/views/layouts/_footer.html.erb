@@ -1,0 +1,44 @@
+<footer class="footer-distributed">
+  <div class="footer-left">
+    <h3>
+      Company
+      <span>logo</span>
+    </h3>
+    <p class="footer-links">
+      <%= link_to :Home %>
+      ·
+      <%= link_to :Blog %>
+      ·
+      <%= link_to :Pricing %>
+      ·
+      <%= link_to :About %>
+      ·
+      <%= link_to :FAQ %>
+      ·
+      <%= link_to :Contact %>
+    </p>
+    <p class="footer-company-name">Company Name &copy; <%= Date.today.year %></p>
+    <div class="footer-icons">
+      <%= link_to nil do %>
+        <%= content_tag :i, nil, class: "fab fa-facebook-square" %>
+      <% end %>
+      <%= link_to nil do %>
+        <%= content_tag :i, nil, class: "fab fa-twitter-square" %>
+      <% end %>
+      <%= link_to nil do %>
+        <%= content_tag :i, nil, class: "fab fa-linkedin" %>
+      <% end %>
+      <%= link_to nil do %>
+        <%= content_tag :i, nil, class: "fab fa-github-square" %>
+      <% end %>
+    </div>
+  </div>
+  <div class="footer-right">
+    <p>Contact Us</p>
+    <%= form_with model: nil, method: :post do |f| %>
+      <%= f.text_field :email, placeholder: 'Email' %>
+      <%= f.text_area :message, placeholder: 'Message' %>
+      <%= f.submit :Send %>
+    <% end %>
+  </div>
+</footer>
