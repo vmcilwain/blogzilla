@@ -12,6 +12,8 @@
 
   <body>
     <%= render 'layouts/nav' %>
+    <%= success_notice %>
+    <%= error_notice %>
     <%= yield %>
     <%= render "layouts/footer" %>
   </body>
