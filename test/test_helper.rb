@@ -4,6 +4,14 @@ require "rails/test_help"
 
 class ActiveSupport::TestCase
   include FactoryBot::Syntax::Methods
+  
+  Shoulda::Matchers.configure do |config|
+    config.integrate do |with|
+      with.test_framework :minitest
+      with.library :rails
+    end
+  end
+
   # Run tests in parallel with specified workers
   parallelize(workers: :number_of_processors)
 
