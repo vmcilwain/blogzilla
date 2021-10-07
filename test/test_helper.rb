@@ -1,10 +1,12 @@
 ENV['RAILS_ENV'] ||= 'test'
-require_relative "../config/environment"
-require "rails/test_help"
+require_relative '../config/environment'
+require 'rails/test_help'
+require_relative 'support/integration_helpers'
 
 class ActiveSupport::TestCase
   include FactoryBot::Syntax::Methods
-  
+  include Support::IntegrationHelpers
+
   Shoulda::Matchers.configure do |config|
     config.integrate do |with|
       with.test_framework :minitest
