@@ -10,7 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_10_07_004637) do
+ActiveRecord::Schema.define(version: 2021_10_07_005240) do
+
+  create_table "permissions", charset: "utf8mb4", force: :cascade do |t|
+    t.bigint "role_id"
+    t.bigint "user_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["role_id"], name: "index_permissions_on_role_id"
+    t.index ["user_id"], name: "index_permissions_on_user_id"
+  end
 
   create_table "posts", charset: "utf8mb4", force: :cascade do |t|
     t.string "title", default: "", null: false
