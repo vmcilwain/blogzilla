@@ -28,4 +28,8 @@ class Admin::PostFlowsTest < ActionDispatch::IntegrationTest
           }
     end
   end
+  
+  # test 'as an admin, I can create a post' do
+  #   sign_in @admin
+  # end
 end
