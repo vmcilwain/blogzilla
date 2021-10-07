@@ -4,6 +4,13 @@ class ApplicationController < ActionController::Base
   before_action :authenticate_user!
 
   private
+  def flash_error_notice
+    flash[:error] = "There were errors!"
+  end
+  
+  def success_notice(object, status=:created)
+    "#{object.class.name.titleize} was successfully #{status.to_s}"
+  end
 
   def configure_permitted_parameters
     devise_parameter_sanitizer.permit(:sign_up, keys: %i[first_name last_name])

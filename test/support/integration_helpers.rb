@@ -7,5 +7,26 @@ module Support
       assert_redirected_to '/users/sign_in'
       assert_not flash[:alert].nil?
     end
+
+    def sign_in(user=create(:user))
+      post '/users/sign_in', params: {
+        user: {
+          email: user.email,
+          # double check password in factory if the following pops up:
+          # Expected response to be a <3XX: redirect>, but was a <200: OK>
+          password: 'somepassword'
+        }
+      }
+      assert_response :redirect
+      follow_redirect!
+    end
+    
+    def sign_out
+      delete '/users/sign_out'
+    end
+
+    def assert_success_notice
+      assert flash[:success].present?
+    end
   end
 end
