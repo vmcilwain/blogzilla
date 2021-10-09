@@ -1,5 +1,5 @@
 class Admin::PostsController < Admin::AdminController
-  before_action :post, only: %i[show]
+  before_action :post, only: %i[show update edit]
   
   def create
     @post = Post.new(post_params)
@@ -13,7 +13,12 @@ class Admin::PostsController < Admin::AdminController
   end
 
   def update
-    redirect_to :index
+    if @post.update(post_params)
+      redirect_to admin_post_path(@post), success: success_notice(@post, :updated)
+    else
+      flash_error_notice
+      render :edit
+    end
   end  
   
   def destroy
@@ -23,7 +28,7 @@ class Admin::PostsController < Admin::AdminController
   def post_params
     params.require(:post).permit(:title).tap do |assign|
       assign[:creator] = current_user if request.post?
-      assign[:updater] = current_user if request.put? || request.put?
+      assign[:updater] = current_user if request.put? || request.patch?
     end
   end
 

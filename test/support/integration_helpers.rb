@@ -8,7 +8,7 @@ module Support
       assert_not flash[:alert].nil?
     end
 
-    def sign_in(user=create(:user))
+    def sign_in(user = create(:user))
       post '/users/sign_in', params: {
         user: {
           email: user.email,
@@ -27,6 +27,10 @@ module Support
 
     def assert_success_notice
       assert flash[:success].present?
+    end
+
+    def assert_error_notice
+      assert flash[:error].present?
     end
   end
 end
