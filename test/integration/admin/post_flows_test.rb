@@ -96,7 +96,7 @@ class Admin::PostFlowsTest < ActionDispatch::IntegrationTest
 
     put admin_post_path(_post), 
         params: {
-          post: { title: nil }
+          post: { content: nil }
         }
 
     assert_response :ok

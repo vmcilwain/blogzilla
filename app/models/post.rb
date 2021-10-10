@@ -1,4 +1,7 @@
 class Post < ApplicationRecord
   include UserAssociable
-  validates :title, presence: true
+  
+  has_rich_text :content
+  
+  validates :title, :content, presence: true
 end

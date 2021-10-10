@@ -27,7 +27,7 @@ class Admin::PostsController < Admin::AdminController
   end
 
   def post_params
-    params.require(:post).permit(:title).tap do |assign|
+    params.require(:post).permit(:title, :content).tap do |assign|
       assign[:creator] = current_user if request.post?
       assign[:updater] = current_user if request.put? || request.patch?
     end
