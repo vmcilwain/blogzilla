@@ -1,5 +1,5 @@
 class Admin::PostsController < Admin::AdminController
-  before_action :post, only: %i[show update edit]
+  before_action :post, only: %i[show update edit destroy]
   
   def create
     @post = Post.new(post_params)
@@ -22,7 +22,8 @@ class Admin::PostsController < Admin::AdminController
   end  
   
   def destroy
-    redirect_to :index
+    @post.destroy
+    redirect_to admin_posts_path, success: success_notice(@post, :deleted)
   end
 
   def post_params

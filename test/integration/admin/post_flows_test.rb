@@ -104,6 +104,16 @@ class Admin::PostFlowsTest < ActionDispatch::IntegrationTest
     assert_error_notice
   end
 
+  test 'as an admin, I can delete a post' do
+    sign_in_user
+
+    delete admin_post_path(_post)
+
+    assert_response :found
+    assert_redirected_to admin_posts_path
+    assert_success_notice
+  end
+
   def sign_in_user
     add_user_to_role @user, @role
     sign_in @user
