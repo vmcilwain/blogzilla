@@ -80,6 +80,9 @@ GEM
     childprocess (3.0.0)
     concurrent-ruby (1.1.9)
     crass (1.0.6)
+    debase (0.2.5.beta2)
+      debase-ruby_core_source (>= 0.10.12)
+    debase-ruby_core_source (0.10.12)
     devise (4.8.0)
       bcrypt (~> 3.0)
       orm_adapter (~> 0.1)
@@ -188,6 +191,8 @@ GEM
       unicode-display_width (>= 1.4.0, < 3.0)
     rubocop-ast (1.12.0)
       parser (>= 3.0.1.1)
+    ruby-debug-ide (0.7.2)
+      rake (>= 0.8.1)
     ruby-progressbar (1.11.0)
     ruby-vips (2.0.17)
       ffi (~> 1.9)
@@ -258,6 +263,7 @@ DEPENDENCIES
   bootsnap (>= 1.4.4)
   byebug
   capybara (>= 3.26)
+  debase (~> 0.2.5.beta2)
   devise (~> 4.8)
   factory_bot_rails (~> 6.2)
   faker (~> 2.19)
@@ -272,6 +278,7 @@ DEPENDENCIES
   rails-controller-testing (~> 1.0)
   rexml
   rubocop (~> 1.22)
+  ruby-debug-ide (~> 0.7)
   sass-rails (>= 6)
   selenium-webdriver
   shoulda (~> 4.0)
