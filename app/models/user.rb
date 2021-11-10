@@ -6,4 +6,7 @@ class User < ApplicationRecord
          :confirmable, :trackable
   
   validates :first_name, :last_name, presence: true
+
+  has_many :permissions, dependent: :destroy
+  has_many :roles, through: :permissions
 end
