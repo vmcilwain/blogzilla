@@ -1,9 +1,9 @@
 FactoryBot.define do
   factory :role do
-    name { Faker::Lorem.word }
+    sequence(:name) { |n| "Role #{n}" }
   end
 
   factory :admin_role, parent: :role do
-    name { 'administrator' }
+    name { 'Administrator' }
   end
 end
