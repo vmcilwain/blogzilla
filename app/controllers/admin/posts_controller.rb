@@ -1,6 +1,10 @@
 class Admin::PostsController < Admin::AdminController
   before_action :post, only: %i[show update edit destroy]
   
+  def index
+    @posts = Post.all
+  end
+  
   def create
     @post = Post.new(post_params)
     

@@ -1,0 +1,19 @@
+<main class='container'>
+  <h1>Posts Administration</h1>
+
+  <table class="table table-hover">
+    <thead>
+      <tr class='table-active'>
+        <th scope="col">ID</th>
+        <th scope="col">Title</th>
+        <th scope="col">Comments</th>
+        <th scope="col">Created At</th>
+        <th scope="col">Updated At At</th>
+        <th scope="col"><%= link_to :New %></th>
+      </tr>
+    </thead>
+    <tbody>
+      <%= render partial: 'admin/posts/post', collection: @posts %>
+    </tbody>
+  </table>
+</main>
