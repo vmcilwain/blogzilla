@@ -1,0 +1,18 @@
+<%= form_with model: @post, url: url, method: method do |f| %>
+  <fieldset class='mb-3'>
+    <%= f.label :title, class: 'form-label' %>
+    <%= f.text_field :title, class: 'form-control', autofocus: true, placeholder: 'Start with a compelling subject' %>
+  </fieldset>
+
+  <fieldset class='mb-3'>
+    <%= f.label :content, class: 'form-label' %>
+    <div class='jumbotron'>
+      <%= f.rich_text_area :content, placeholder: "Write till your heart is content" %>
+    </div>
+  </fieldset>
+
+  <fieldset class='mb-3'>
+    <%= f.submit :Save, class: 'btn btn-primary' %>
+    <%= link_to :Cancel, :back, class: 'btn btn-danger', data: { confirm: "Are you sure? Any changes made will will be removed. This can't be undone!" } %>
+  </fieldset>
+<% end %>
