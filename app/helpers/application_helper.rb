@@ -30,10 +30,19 @@ module ApplicationHelper
   # Another style of medium date format
   #
   # @param date [Date] the date object
-  # @return day/MONTH/YEAR
+  # @return day MONTH YEAR
   # Produces -> 18 October 2015
   def medium_date2(date)
     date.strftime("%d %B %Y") rescue 'unknown'
+  end
+
+  # Yet Another style of medium date format
+  #
+  # @param date [Date] the date object
+  # @return month day, year
+  # Produces -> October 18, 2015
+  def medium_date3(date)
+    date.strftime("%B %d, %Y") rescue 'unknown'
   end
 
   # Short date format
