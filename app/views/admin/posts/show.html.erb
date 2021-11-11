@@ -1,0 +1,17 @@
+<main class='container'>
+  <h1 class='text-center'><%= @post.title %></h1>
+
+  <div class="card border-light mb-3" style="max-width: 80rem;">
+    <div class="card-header">
+      <%= link_to :Listing, admin_posts_path %> | 
+      <%= link_to :Edit, edit_admin_post_path(@post) %> | 
+      <%= link_to :Delete, admin_post_path(@post), method: :delete, data: { confirm: "Are you sure? This can't be undone" } %>
+    </div>
+    <div class="card-body">
+      <p class="card-text">
+        <%= medium_date3 @post.created_at %> by <%= @post.creator.first_name %>
+        <%= @post.content %>
+      </p>
+    </div>
+  </div>
+</main>
