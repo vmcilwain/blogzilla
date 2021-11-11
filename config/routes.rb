@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   root 'pages#index'
 
   namespace :admin do
+    root "dashboards#index"
     resources :posts
   end
 end
