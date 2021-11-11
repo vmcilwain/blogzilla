@@ -8,7 +8,7 @@
 
 user = User.create first_name: Faker::Name.first_name,
                     last_name: Faker::Name.last_name,
-                    email: 'user@example.com',
+                    email: 'admin@example.com',
                     password: 'somepassword',
                     password_confirmation: 'somepassword',
                     confirmed_at: Time.now
