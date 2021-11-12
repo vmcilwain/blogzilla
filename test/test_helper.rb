@@ -3,11 +3,13 @@ require_relative '../config/environment'
 require 'rails/test_help'
 require_relative 'support/integration_helpers'
 require_relative 'support/utility_helpers'
+require_relative 'support/system_helpers'
 
 class ActiveSupport::TestCase
   include FactoryBot::Syntax::Methods
   include Support::IntegrationHelpers
   include Support::UtilityHelpers
+  include Support::SystemHelpers
 
   Shoulda::Matchers.configure do |config|
     config.integrate do |with|
@@ -23,4 +25,15 @@ class ActiveSupport::TestCase
   # fixtures :all
 
   # Add more helper methods to be used by all tests here...
+
+  def add_user_to_role(user, role)
+    role.users << user
+  end
+  
+  def admin_user
+    role = Role.where(name: 'Administrator').first || create(:role, name: 'administrator')
+    user = create :user
+    add_user_to_role user, role
+    user
+  end
 end
