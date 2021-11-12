@@ -4,10 +4,14 @@ class Admin::PostsController < Admin::AdminController
   def index
     @posts = Post.all
   end
+
+  def new
+    @post = Post.new
+  end
   
   def create
     @post = Post.new(post_params)
-    
+
     if @post.save
       redirect_to admin_post_path(@post), success: success_notice(@post)
     else
@@ -40,6 +44,4 @@ class Admin::PostsController < Admin::AdminController
   def post
     @post = Post.find params[:id]
   end
-  
-  
 end
