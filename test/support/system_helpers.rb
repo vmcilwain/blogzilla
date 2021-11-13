@@ -30,8 +30,8 @@ module Support
     end
 
     def assert_alert_flash
-      assert has_css? '.alert.alert-warning'
-      assert_not find('.alert.alert-success').text.blank?
+      assert has_css? '.alert.alert-info'
+      assert_not find('.alert.alert-info').text.blank?
     end
 
     def click_ok
@@ -47,8 +47,8 @@ module Support
     end
 
     def assert_unauthorized_user
-      assert_current_path root_path
-      assert_alert_alert
+      assert_current_url root_url
+      assert_alert_flash
     end
   end
 end

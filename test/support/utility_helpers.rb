@@ -5,7 +5,7 @@ module Support
     end
     
     def admin_user
-      role = Role.where(name: 'Administrator').first || create(:role, name: 'administrator')
+      role = Role.where(name: 'Administrator').first || create(:role, name: 'Administrator')
       user = create :user
       add_user_to_role user, role
       user
@@ -17,6 +17,10 @@ module Support
     
     def paragraphs(number = 5, separator = "\n")
       Faker::Lorem.paragraphs(number: number).join(separator)
+    end
+
+    def _post
+      @post ||= create :post
     end
   end
 end

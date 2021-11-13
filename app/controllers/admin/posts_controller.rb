@@ -2,14 +2,18 @@ class Admin::PostsController < Admin::AdminController
   before_action :post, only: %i[show update edit destroy]
   
   def index
+    authorize Post
     @posts = Post.all
   end
 
   def new
+    authorize Post
     @post = Post.new
   end
   
   def create
+    authorize Post
+
     @post = Post.new(post_params)
 
     if @post.save
@@ -43,5 +47,6 @@ class Admin::PostsController < Admin::AdminController
 
   def post
     @post = Post.find params[:id]
+    authorize @post
   end
 end

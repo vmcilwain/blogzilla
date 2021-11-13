@@ -1,11 +1,6 @@
 require 'test_helper'
 
 class Admin::PostFlowsTest < ActionDispatch::IntegrationTest
-  setup do
-    @role = create :admin_role
-    @user = create :user
-  end
-
   test 'requires authentication' do
     requires_authentication { get admin_posts_path }
     requires_authentication { get admin_post_path _post }
@@ -27,9 +22,33 @@ class Admin::PostFlowsTest < ActionDispatch::IntegrationTest
           }
     end
   end
-  
+
+  test 'requires authorization' do
+    sign_in
+
+    requires_authorization { get admin_posts_path }
+    requires_authorization { get admin_post_path _post }
+    requires_authorization { get new_admin_post_path }
+    requires_authorization { get edit_admin_post_path _post }
+    requires_authorization { delete admin_post_path _post }
+
+    requires_authorization do
+      post admin_posts_path,
+           params: {
+             post: attributes_for(:post)
+           }
+    end
+    
+    requires_authorization do
+      put admin_post_path(_post),
+          params: {
+            post: { title: Faker::Lorem.word }
+          }
+    end
+  end
+
   test 'as an admin, I can view a posts' do
-    sign_in_user
+    sign_in admin_user
 
     get admin_posts_path
 
@@ -37,7 +56,7 @@ class Admin::PostFlowsTest < ActionDispatch::IntegrationTest
   end
 
   test 'as an admin, I can view a post' do
-    sign_in_user
+    sign_in admin_user
 
     get admin_post_path(_post)
 
@@ -45,7 +64,7 @@ class Admin::PostFlowsTest < ActionDispatch::IntegrationTest
   end
 
   test 'as an administrator, I can create a post' do
-    sign_in_user
+    sign_in admin_user
 
     get new_admin_post_path
     assert_response :success
@@ -63,7 +82,7 @@ class Admin::PostFlowsTest < ActionDispatch::IntegrationTest
   end
 
   test 'as an admin, I am told why a creating a post failed' do
-    sign_in_user
+    sign_in admin_user
 
     post admin_posts_path, 
          params: {
@@ -76,7 +95,7 @@ class Admin::PostFlowsTest < ActionDispatch::IntegrationTest
   end
 
   test 'as an administrator, I can update a post' do
-    sign_in_user
+    sign_in admin_user
 
     get edit_admin_post_path(_post)
     assert_response :success
@@ -92,7 +111,7 @@ class Admin::PostFlowsTest < ActionDispatch::IntegrationTest
   end
 
   test 'as an admin, I am told why a updating a post failed' do
-    sign_in_user
+    sign_in admin_user
 
     put admin_post_path(_post), 
         params: {
@@ -105,21 +124,12 @@ class Admin::PostFlowsTest < ActionDispatch::IntegrationTest
   end
 
   test 'as an admin, I can delete a post' do
-    sign_in_user
+    sign_in admin_user
 
     delete admin_post_path(_post)
 
     assert_response :found
     assert_redirected_to admin_posts_path
     assert_success_notice
-  end
-
-  def sign_in_user
-    add_user_to_role @user, @role
-    sign_in @user
-  end
-
-  def _post
-    @post ||= create :post
   end
 end
