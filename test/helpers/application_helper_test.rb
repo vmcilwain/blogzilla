@@ -35,7 +35,7 @@ class ApplicationHelperTest < ActionView::TestCase
   end
 
   test 'returns long date format' do
-    assert_equal time_stamp.strftime("%A %d %B %Y - %H:%M %p"), long_date(time_stamp)
+    assert_equal time_stamp.strftime('%A %d %B %Y - %H:%M %p'), long_date(time_stamp)
   end
 
   test 'long date returns nil if invalid object' do
@@ -43,7 +43,7 @@ class ApplicationHelperTest < ActionView::TestCase
   end
 
   test 'returns medium date format' do
-    assert_equal time_stamp.strftime("%m/%d/%Y at %H:%M %p"), medium_date(time_stamp)
+    assert_equal time_stamp.strftime('%m/%d/%Y at %H:%M %p'), medium_date(time_stamp)
   end
 
   test 'medium date returns nil if invalid object' do
@@ -51,7 +51,7 @@ class ApplicationHelperTest < ActionView::TestCase
   end
 
   test 'returns medium date 2 format' do
-    assert_equal time_stamp.strftime("%d %B %Y"), medium_date2(time_stamp)
+    assert_equal time_stamp.strftime('%d %B %Y'), medium_date2(time_stamp)
   end
 
   test 'medium date 2 returns nil if invalid object' do
@@ -59,7 +59,7 @@ class ApplicationHelperTest < ActionView::TestCase
   end
 
   test 'returns medium date 3 format' do
-    assert_equal time_stamp.strftime("%B %d, %Y"), medium_date3(time_stamp)
+    assert_equal time_stamp.strftime('%B %d, %Y'), medium_date3(time_stamp)
   end
 
   test 'medium date 3 returns nil if invalid object' do
@@ -67,7 +67,7 @@ class ApplicationHelperTest < ActionView::TestCase
   end
 
   test 'returns short date format' do
-    assert_equal time_stamp.strftime("%Y-%m-%d"), short_date(time_stamp)
+    assert_equal time_stamp.strftime('%Y-%m-%d'), short_date(time_stamp)
   end
 
   test 'short date returns nil if invalid object' do
@@ -75,7 +75,7 @@ class ApplicationHelperTest < ActionView::TestCase
   end
 
   test 'returns US date format' do
-    assert_equal time_stamp.strftime("%m/%d/%Y at %H:%M %p"), us_date(time_stamp)
+    assert_equal time_stamp.strftime('%m/%d/%Y at %H:%M %p'), us_date(time_stamp)
   end
 
   test 'US date returns nil if invalid object' do

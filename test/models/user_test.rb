@@ -21,10 +21,10 @@ class UserTest < ActiveSupport::TestCase
 
   test 'should return true if user has given role' do 
     create :permission, user: @user, role: @role
-    assert @user.has_role?(@role.name.to_sym)
+    assert @user.role?(@role.name.to_sym)
   end
 
   test 'should return false if user does not have given role' do
-    assert_not @user.has_role?(@role.name.to_sym)
+    assert_not @user.role?(@role.name.to_sym)
   end
 end

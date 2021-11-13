@@ -10,7 +10,7 @@ class User < ApplicationRecord
   has_many :permissions, dependent: :destroy
   has_many :roles, through: :permissions
 
-  def has_role?(name)
+  def role?(name)
     roles.map(&:name).include? name.to_s
   end
   

@@ -7,13 +7,13 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 user = User.create first_name: Faker::Name.first_name,
-                    last_name: Faker::Name.last_name,
-                    email: 'admin@example.com',
-                    password: 'somepassword',
-                    password_confirmation: 'somepassword',
-                    confirmed_at: Time.now
+                   last_name: Faker::Name.last_name,
+                   email: 'admin@example.com',
+                   password: 'somepassword',
+                   password_confirmation: 'somepassword',
+                   confirmed_at: Time.now
 admin_role = Role.create name: 'Administrator',
-                        description: 'Allows a user to create and manage posts and comments'
+                         description: 'Allows a user to create and manage posts and comments'
                   
 Permission.create role: admin_role, user: user
 

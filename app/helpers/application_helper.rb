@@ -16,7 +16,7 @@ module ApplicationHelper
   # @param date [Date] the date object
   # @return day date month year - hour:minutes AM/PM
   def long_date(date)
-    date.strftime("%A %d %B %Y - %H:%M %p") if date.respond_to? :strftime
+    date.strftime('%A %d %B %Y - %H:%M %p') if date.respond_to? :strftime
   end
 
   # Medium date format
@@ -24,7 +24,7 @@ module ApplicationHelper
   # @param date [Date] the date object
   # @return month/date/year at hour:minutes AM/PM
   def medium_date(date)
-    date.strftime("%m/%d/%Y at %H:%M %p") if date.respond_to? :strftime
+    date.strftime('%m/%d/%Y at %H:%M %p') if date.respond_to? :strftime
   end
 
   # Another style of medium date format
@@ -33,7 +33,7 @@ module ApplicationHelper
   # @return day MONTH YEAR
   # Produces -> 18 October 2015
   def medium_date2(date)
-    date.strftime("%d %B %Y") if date.respond_to? :strftime
+    date.strftime('%d %B %Y') if date.respond_to? :strftime
   end
 
   # Yet Another style of medium date format
@@ -42,7 +42,7 @@ module ApplicationHelper
   # @return month day, year
   # Produces -> October 18, 2015
   def medium_date3(date)
-    date.strftime("%B %d, %Y") if date.respond_to? :strftime
+    date.strftime('%B %d, %Y') if date.respond_to? :strftime
   end
 
   # Short date format
@@ -51,7 +51,7 @@ module ApplicationHelper
   # @return year-month-date
   # Produces -> 2015-10-18
   def short_date(date)
-    date.strftime("%Y-%m-%d") if date.respond_to? :strftime
+    date.strftime('%Y-%m-%d') if date.respond_to? :strftime
   end
 
   # US date format
@@ -59,7 +59,7 @@ module ApplicationHelper
   # @param date [Date] the date object
   # @return year-month-date
   def us_date(date)
-    date.strftime("%m/%d/%Y at %H:%M %p") if date.respond_to? :strftime
+    date.strftime('%m/%d/%Y at %H:%M %p') if date.respond_to? :strftime
   end
   
   def boolean_to_text(value)
@@ -72,5 +72,4 @@ module ApplicationHelper
       value
     end
   end
-
 end
