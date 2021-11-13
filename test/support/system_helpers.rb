@@ -14,20 +14,24 @@ module Support
       click_on 'Logout'
     end
 
-    def assert_success_alert
+    def assert_success_flash
       assert has_css? ".alert.alert-success"
+      assert_not find(".alert.alert-success").text.blank?
     end
 
-    def assert_error_alert
+    def assert_error_flash
       assert has_css? ".alert.alert-danger"
+      assert_not find(".alert.alert-danger").text.blank?
     end
 
-    def assert_notice_alert
+    def assert_notice_flash
       assert has_css? ".alert.alert-info"
+      assert_not find(".alert.alert-info").text.blank?
     end
 
-    def assert_alert_alert
+    def assert_alert_flash
       assert has_css? ".alert.alert-warning"
+      assert_not find(".alert.alert-success").text.blank?
     end
 
     def click_ok
