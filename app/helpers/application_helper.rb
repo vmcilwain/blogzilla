@@ -11,6 +11,14 @@ module ApplicationHelper
     render 'layouts/error_notice' if flash[:error].present?
   end
 
+  def authentication_action
+    if user_signed_in?
+      link_to 'Sign Out', destroy_user_session_path, method: :delete
+    else
+      link_to 'Sign In', new_user_session_path
+    end
+  end
+
   # Long date format
   #
   # @param date [Date] the date object
