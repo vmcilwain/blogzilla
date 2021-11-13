@@ -33,7 +33,15 @@ module Support
     def click_ok
       page.accept_alert
     end
+
+    def assert_current_url(url)
+      assert_equal url, current_url
+    end
     
+    def assert_current_path(path)
+      assert_equal path, current_path
+    end
+
     def assert_unauthorized_user
       assert_current_path root_path
       assert_alert_alert
