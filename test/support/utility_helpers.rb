@@ -4,5 +4,19 @@ module Support
       role.users << user
     end
     
+    def admin_user
+      role = Role.where(name: 'Administrator').first || create(:role, name: 'administrator')
+      user = create :user
+      add_user_to_role user, role
+      user
+    end
+  
+    def words(number=5, separator="\s")
+      Faker::Lorem.words(number: number).join(separator)
+    end
+    
+    def paragraphs(number=5, separator="\n")
+      Faker::Lorem.paragraphs(number: number).join(separator)
+    end
   end
 end
