@@ -13,25 +13,25 @@ class Admin::PostsController < Admin::AdminController
     @post = Post.new(post_params)
 
     if @post.save
-      redirect_to admin_post_path(@post), success: success_notice(@post)
+      redirect_to admin_post_path(@post), success: success_message(@post)
     else
-      flash_error_notice
+      error_message
       render :new
     end
   end
 
   def update
     if @post.update(post_params)
-      redirect_to admin_post_path(@post), success: success_notice(@post, :updated)
+      redirect_to admin_post_path(@post), success: success_message(@post, :updated)
     else
-      flash_error_notice
+      error_message
       render :edit
     end
   end  
   
   def destroy
     @post.destroy
-    redirect_to admin_posts_path, success: success_notice(@post, :deleted)
+    redirect_to admin_posts_path, success: success_message(@post, :deleted)
   end
 
   def post_params
