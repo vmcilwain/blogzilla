@@ -5,6 +5,8 @@ Rails.application.routes.draw do
   
   root 'pages#index'
 
+  resources :posts, only: %i[index show]
+  
   namespace :admin do
     root 'dashboards#index'
     resources :posts

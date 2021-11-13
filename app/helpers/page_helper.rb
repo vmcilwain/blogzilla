@@ -11,7 +11,7 @@ module PageHelper
             <div class='card-body'>
               <h4 class='card-title'>#{post.title}</h4>
               <p class='card-text'>
-                #{truncate(post.content.to_plain_text, length: 80) { link_to 'Read More', admin_post_path(post) }}
+                #{truncate(post.content.to_plain_text, length: 80) { link_to 'Read More', post_path(post) }}
               </p>
             </div>
           </div>
