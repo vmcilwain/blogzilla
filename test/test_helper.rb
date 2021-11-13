@@ -4,12 +4,15 @@ require 'rails/test_help'
 require_relative 'support/integration_helpers'
 require_relative 'support/utility_helpers'
 require_relative 'support/system_helpers'
+require_relative 'support/policy_assertions'
 
 class ActiveSupport::TestCase
   include FactoryBot::Syntax::Methods
   include Support::IntegrationHelpers
   include Support::UtilityHelpers
   include Support::SystemHelpers
+  include Pundit
+  include Support::PolicyAssertions
 
   Shoulda::Matchers.configure do |config|
     config.integrate do |with|
