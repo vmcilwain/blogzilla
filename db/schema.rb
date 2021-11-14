@@ -51,6 +51,8 @@ ActiveRecord::Schema.define(version: 2021_11_14_200736) do
   end
 
   create_table "comments", charset: "utf8mb4", force: :cascade do |t|
+    t.string "name", default: "", null: false
+    t.string "email"
     t.integer "created_by"
     t.integer "updated_by"
     t.datetime "created_at", precision: 6, null: false

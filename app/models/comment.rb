@@ -3,5 +3,5 @@ class Comment < ApplicationRecord
   
   has_rich_text :content
   
-  validates :content, presence: true
+  validates :name, :content, presence: true
 end
