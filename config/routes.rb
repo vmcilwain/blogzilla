@@ -5,7 +5,9 @@ Rails.application.routes.draw do
   
   root 'pages#index'
 
-  resources :posts, only: %i[index show]
+  resources :posts, only: %i[index show] do
+    resources :comments, only: %i[create destroy]
+  end
   
   namespace :admin do
     root 'dashboards#index'
