@@ -51,6 +51,7 @@ ActiveRecord::Schema.define(version: 2021_11_14_200736) do
   end
 
   create_table "comments", charset: "utf8mb4", force: :cascade do |t|
+    t.bigint "post_id"
     t.string "name", default: "", null: false
     t.string "email"
     t.integer "created_by"
@@ -58,6 +59,7 @@ ActiveRecord::Schema.define(version: 2021_11_14_200736) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["created_by"], name: "index_comments_on_created_by"
+    t.index ["post_id"], name: "index_comments_on_post_id"
     t.index ["updated_by"], name: "index_comments_on_updated_by"
   end
 

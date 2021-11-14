@@ -11,10 +11,10 @@ class CommentTest < ActiveSupport::TestCase
   end
 
   context "db indexes" do
-    should have_db_index(:created_by)
-    should have_db_index(:updated_by)
+    should have_db_index :post_id
+    should have_db_index :created_by
+    should have_db_index :updated_by
   end
-  
   
   context "validates" do
     should validate_presence_of :name
@@ -22,6 +22,7 @@ class CommentTest < ActiveSupport::TestCase
   end
 
   context "associations" do
+    should belong_to :post
     should belong_to(:creator).optional
     should belong_to(:updater).optional
   end

@@ -9,9 +9,9 @@ class PostTest < ActiveSupport::TestCase
   end
 
   context "db indexes" do
-    should have_db_index(:title)
-    should have_db_index(:created_by)
-    should have_db_index(:updated_by)
+    should have_db_index :title
+    should have_db_index :created_by
+    should have_db_index :updated_by
   end
   
 
