@@ -6,7 +6,7 @@ class PermissionTest < ActiveSupport::TestCase
     should have_db_column(:user_id).of_type(:integer)
   end
 
-  context "db indexes" do
+  context 'db indexes' do
     should have_db_index :role_id
     should have_db_index :user_id
   end

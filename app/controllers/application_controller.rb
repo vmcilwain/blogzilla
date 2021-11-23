@@ -14,7 +14,7 @@ class ApplicationController < ActionController::Base
     flash[:error] = I18n.t('alert.error')
   end
   
-  def success_message(object, status=:created)
+  def success_message(object, status = :created)
     I18n.t('alert.success', class_name: object.class.name.titleize, status: status.to_s)
   end
 

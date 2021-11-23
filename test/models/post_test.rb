@@ -8,7 +8,7 @@ class PostTest < ActiveSupport::TestCase
     should have_db_column(:updated_by).of_type(:integer)
   end
 
-  context "db indexes" do
+  context 'db indexes' do
     should have_db_index :title
     should have_db_index :created_by
     should have_db_index :updated_by
@@ -20,6 +20,7 @@ class PostTest < ActiveSupport::TestCase
   end
   
   context 'aassociations' do
+    should have_many :comments
     should belong_to(:creator).optional
     should belong_to(:updater).optional
   end

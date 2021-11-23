@@ -1,4 +1,4 @@
-require "application_system_test_case"
+require 'application_system_test_case'
 
 class PostsTest < ApplicationSystemTestCase
   test 'as a visitor, I can view a list of posts' do

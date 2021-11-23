@@ -6,7 +6,7 @@ class RoleTest < ActiveSupport::TestCase
     should have_db_column(:description).of_type(:string)
   end
 
-  context "db indexes" do
+  context 'db indexes' do
     should have_db_index :name
   end
 

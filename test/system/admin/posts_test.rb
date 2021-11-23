@@ -9,7 +9,7 @@ class Admin::PostsTest < ApplicationSystemTestCase
     assert_selector 'h1', text: 'Posts Administration'
   end
 
-  test "as a visitor, I am unauthorized to view post listing" do
+  test 'as a visitor, I am unauthorized to view post listing' do
     new_session
 
     visit admin_posts_url
@@ -25,10 +25,10 @@ class Admin::PostsTest < ApplicationSystemTestCase
     assert_selector 'h1', text: _post.title
   end
 
-  test "as a visitor, I am unauthorized to view a post" do
+  test 'as a visitor, I am unauthorized to view a post' do
     new_session
 
-    visit  admin_post_url(_post)
+    visit admin_post_url(_post)
 
     assert_unauthorized_user
   end
@@ -61,7 +61,7 @@ class Admin::PostsTest < ApplicationSystemTestCase
     assert_error_flash
   end
 
-  test "as a visitor, I am unauthorized to create a post" do
+  test 'as a visitor, I am unauthorized to create a post' do
     new_session
 
     visit new_admin_post_url
@@ -96,7 +96,7 @@ class Admin::PostsTest < ApplicationSystemTestCase
     assert_error_flash
   end
 
-  test "as a visitor, I am unauthorized to update a post" do
+  test 'as a visitor, I am unauthorized to update a post' do
     new_session
 
     visit edit_admin_post_url(_post)

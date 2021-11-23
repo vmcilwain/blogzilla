@@ -1,4 +1,4 @@
-require "test_helper"
+require 'test_helper'
 
 class PostFlowsTest < ActionDispatch::IntegrationTest
   test 'as an visitor, I can view a posts' do
