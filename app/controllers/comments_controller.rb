@@ -4,7 +4,7 @@ class CommentsController < ApplicationController
 
   def create
     @comment = Comment.new(comment_params)
-    # byebug
+    
     respond_to do |format|
       if @comment.save
         format.html { redirect_to @post, success: success_message(@comment) }
