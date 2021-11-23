@@ -8,6 +8,7 @@ require_relative 'support/policy_assertions'
 
 class ActiveSupport::TestCase
   include FactoryBot::Syntax::Methods
+  include ActionView::RecordIdentifier
   include Support::IntegrationHelpers
   include Support::UtilityHelpers
   include Support::SystemHelpers

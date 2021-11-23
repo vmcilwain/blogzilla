@@ -1,0 +1,19 @@
+<%= form_with model: @comment, url: [@post, @comment] do |f| %>
+  <fieldset class='mb-3'>
+    <%= f.text_field :name, class: 'form-control', autofocus: true, placeholder: 'Name' %>
+  </fieldset>
+  
+  <fieldset class='mb-3'>
+    <%= f.email_field :email, class: 'form-control', placeholder: 'Email' %>
+  </fieldset>
+
+  <fieldset class='mb-3'>
+    <%= f.rich_text_area :content, placeholder: 'Comment' %>
+  </fieldset>
+
+  <fieldset class='mb-3'>
+    <%= f.submit :Save, class: 'btn btn-primary' %>
+    <!-- FIX should remove content from fields -->
+    <%= link_to :Cancel, :back, class: 'btn btn-danger', data: { confirm: "Are you sure? Any changes made will will be removed. This can't be undone!" } %>
+  </fieldset>
+<% end %>
