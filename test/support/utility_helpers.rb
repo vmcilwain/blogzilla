@@ -12,11 +12,11 @@ module Support
     end
   
     def words(number = 5, separator = "\s")
-      Faker::Lorem.words(number: number).join(separator)
+      @words ||= Faker::Lorem.words(number: number).join(separator)
     end
     
     def paragraphs(number = 5, separator = "\n")
-      Faker::Lorem.paragraphs(number: number).join(separator)
+      @paragraphs ||= Faker::Lorem.paragraphs(number: number).join(separator)
     end
 
     def _post
