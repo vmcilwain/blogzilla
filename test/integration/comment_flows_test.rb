@@ -12,6 +12,11 @@ class CommentFlowsTest < ActionDispatch::IntegrationTest
   end
 
   test 'as a visitor, I can create a comment via XHR' do
-    skip
+    post post_comments_path(_post), xhr: true,
+         params: {
+           comment: attributes_for(:comment)
+         }
+    
+    assert_select '.alert-success', text: 'Comment created.'
   end
 end

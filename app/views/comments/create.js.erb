@@ -1,0 +1,17 @@
+notice = document.getElementById('xhr_notice');
+
+<% if @comment.errors.any? %>
+  notice.innerHTML = "<p class='alert alert-danger'><%= j @comment.errors.full_messages.to_sentence %>.</p>";
+<% else %>
+  comments = document.getElementById('comments');
+  comments.insertAdjacentHTML('beforeend', "<%= j render(partial: 'comments/comment', locals: { comment: @comment } ) %>")
+
+  notice.innerHTML = "<p class='alert 
+  alert-success'>Comment created.</p>";
+  
+  document.getElementById('comment_name').value = ""
+  document.getElementById('comment_email').value = ""
+  
+  comment = document.querySelector('trix-editor').editor
+  comment.loadHTML('')
+<% end %>

@@ -1,7 +1,6 @@
 <article class='row' id="<%= dom_id comment %>">
   <div class='col'>
     <h6>
-      <!-- datetime should be time_ago_in_words -->
       <%= comment.name %> wrote <%= time_ago_in_words(comment.created_at) %> ago
     </h6>
     

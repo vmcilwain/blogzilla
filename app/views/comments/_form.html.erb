@@ -1,4 +1,6 @@
-<%= form_with model: @comment, url: [@post, @comment] do |f| %>
+<div id='xhr_notice'></div>
+
+<%= form_with model: @comment, url: [@post, @comment], local: false do |f| %>
   <fieldset class='mb-3'>
     <%= f.text_field :name, class: 'form-control', autofocus: true, placeholder: 'Name' %>
   </fieldset>
