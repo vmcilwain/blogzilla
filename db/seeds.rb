@@ -18,7 +18,9 @@ admin_role = Role.create name: 'Administrator',
 Permission.create role: admin_role, user: user
 
 5.times do
-  Post.create title: Faker::Lorem.words(number: 3).join("\s"),
-              content: Faker::Lorem.paragraphs(number: 5).join('<br />'),
-              creator: user
+  post = Post.create title: Faker::Lorem.words(number: 3).join("\s"),
+                      content: Faker::Lorem.paragraphs(number: 5).join('<br />'),
+                      creator: user
+  post.comments.create name: Faker::Name.name,
+                        content: Faker::Lorem.paragraphs(number: 5).join('<br />')
 end
